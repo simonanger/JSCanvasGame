@@ -35,6 +35,9 @@ for (c=0; c<brickColumnCount; c++) {
     }
 }
 
+var img = new Image();
+img.src="classic.png";
+
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener("mousemove", mouseMoveHandler, false);
@@ -65,9 +68,10 @@ function mouseMoveHandler(event) {
 }
 
 function drawBall() {
+  var pattern = ctx.createPattern(img, 'repeat');
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-    ctx.fillStyle = "#0095DD";
+    // ctx.drawImage(img, x, y);
     ctx.fill();
     ctx.closePath();
 }
